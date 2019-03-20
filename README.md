@@ -122,7 +122,7 @@ method：PUT
 ###  2.3. <a name=''></a>查询数据，分页返回
 
 ```
-url：/api/v1/dataset?{name=}&{tag1=}&{tag2=}&{tag3=}&&{page_index=}&{page_offset=}
+url：/api/v1/dataset?{name=}&{tag1=}&{tag2=}&{tag3=}&{page_index=}&{page_offset=}
 method：Get
 ```
 返回分页数据。tag1，tag2，name，id都是精确匹配，tag3是全文检索。
