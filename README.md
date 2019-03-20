@@ -1,8 +1,25 @@
-# dataset
+<!-- vscode-markdown-toc -->
+* 1. [1.1. Restful Api 需求](#RestfulApi)
+* 2. [1.2. Restful接口规范](#Restful)
+	* 2.1. [1.2.1. 插入数据到ElasticSearch](#ElasticSearch)
+	* 2.2. [1.2.2. 更新数据到ElasticSearch](#ElasticSearch-1)
+	* 2.3. [1.2.3. 查询数据，分页返回](#)
+	* 2.4. [1.2.4. 根据ID返回数据](#ID)
+	* 2.5. [1.2.5. 权限](#-1)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+# 1. dataset
 
 dataset是一个数据集合，数据提供方可以插入数据到搜索引擎，数据需求方可以查询数据。
 
-## Restful Api 需求
+
+
+##  1. <a name='RestfulApi'></a>1.1. Restful Api 需求
 
 暴露给用户的是 `Restful Api`。
 有以下场景：
@@ -12,9 +29,9 @@ dataset是一个数据集合，数据提供方可以插入数据到搜索引擎�
 3. 根据Tag查询并分页展示。
 4. 根据ID查询数据详细信息。
 
-## Restful接口规范
+##  2. <a name='Restful'></a>1.2. Restful接口规范
 
-### 1.插入数据到ElasticSearch
+###  2.1. <a name='ElasticSearch'></a>1.2.1. 插入数据到ElasticSearch
 
 ```
 url：/api/v1/dataset
@@ -63,11 +80,11 @@ method：POST
 | desc | String | 成功为SUCCESS，失败为错误描述 |
 | result | String | 成功返回数据ID，失败返回"" |
 
-### 2.更新数据到ElasticSearch
+###  2.2. <a name='ElasticSearch-1'></a>1.2.2. 更新数据到ElasticSearch
 
 ```
 url：/api/v1/dataset
-method：POST
+method：PUT
 ```
 
 请求：
@@ -102,7 +119,7 @@ method：POST
 | desc | String | 成功为SUCCESS，失败为错误描述 |
 | result | String | 成功返回数据ID，失败返回"" |
 
-### 3.查询数据，分页返回
+###  2.3. <a name=''></a>1.2.3. 查询数据，分页返回
 
 ```
 url：/api/v1/dataset?{name=}&{tag1=}&{tag2=}&{tag3=}&&{page_index=}&{page_offset=}
@@ -131,7 +148,7 @@ method：Get
 | total | String |总页数|
 |records|Array|Array里面每个数据和插入的数据一个格式|
 
-### 4. 根据ID返回数据
+###  2.4. <a name='ID'></a>1.2.4. 根据ID返回数据
 
 ```json
 url：/api/v1/dataset/id
@@ -150,6 +167,6 @@ method：Get
 }
 ```
 
-### 5. 权限
+###  2.5. <a name='-1'></a>1.2.5. 权限
 
 目前Restful API没有设计权限系统，由使用代码的第三方自己实现
