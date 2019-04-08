@@ -121,14 +121,14 @@ public class ElasticsearchUtil {
     /**
      * 数据添加
      *
-     * @param jsonObject 要增加的数据
+     * @param obj 要增加的数据
      * @param index      索引，类似数据库
      * @param type       类型，类似表
      * @param id         数据ID
      * @return
      */
-    public static String addData(JSONObject jsonObject, String index, String type, String id) {
-        IndexResponse response = client.prepareIndex(index, type, id).setSource(jsonObject).get();
+    public static String addData(Map obj, String index, String type, String id) {
+        IndexResponse response = client.prepareIndex(index, type, id).setSource(obj).get();
         LOGGER.info("addData response status:{},id:{}", response.status().getStatus(), response.getId());
         return response.getId();
     }
@@ -136,13 +136,13 @@ public class ElasticsearchUtil {
     /**
      * 数据添加
      *
-     * @param jsonObject 要增加的数据
+     * @param obj 要增加的数据
      * @param index      索引，类似数据库
      * @param type       类型，类似表
      * @return
      */
-    public static String addData(JSONObject jsonObject, String index, String type) {
-        return addData(jsonObject, index, type, UUID.randomUUID().toString().replaceAll("-", "").toUpperCase());
+    public static String addData(Map obj, String index, String type) {
+        return addData(obj, index, type, UUID.randomUUID().toString().replaceAll("-", "").toUpperCase());
     }
 
     /**
@@ -162,17 +162,17 @@ public class ElasticsearchUtil {
     /**
      * 通过ID 更新数据
      *
-     * @param jsonObject 要增加的数据
+     * @param obj        要增加的数据
      * @param index      索引，类似数据库
      * @param type       类型，类似表
      * @param id         数据ID
      * @return
      */
-    public static void updateDataById(JSONObject jsonObject, String index, String type, String id) {
+    public static void updateDataById(Map obj, String index, String type, String id) {
 
         UpdateRequest updateRequest = new UpdateRequest();
 
-        updateRequest.index(index).type(type).id(id).doc(jsonObject);
+        updateRequest.index(index).type(type).id(id).doc(obj);
 
         client.update(updateRequest);
 
@@ -247,7 +247,7 @@ public class ElasticsearchUtil {
         searchRequestBuilder.setQuery(query);
 
         // 分页应用
-        searchRequestBuilder.setFrom(startPage).setSize(pageSize);
+        searchRequestBuilder.setFrom(startPage*pageSize).setSize(pageSize);
 
         // 设置是否按查询匹配度排序
         searchRequestBuilder.setExplain(true);
