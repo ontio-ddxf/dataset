@@ -4,7 +4,7 @@
 	* 1.2. [启动本项目，使用swagger查看接口](#swagger)
 * 2. [Restful Api 需求](#RestfulApi)
 * 3. [Restful接口规范](#Restful)
-	* 3.1. [插入数据到ElasticSearch](#ElasticSearch-1)
+	* 3.1. [插入或根据id更新数据到ElasticSearch](#ElasticSearch-1)
 	* 3.2. [查询数据，分页返回](#)
 	* 3.3. [根据ID返回数据](#ID)
 	* 3.4. [权限](#-1)
