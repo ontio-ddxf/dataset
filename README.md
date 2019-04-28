@@ -71,15 +71,15 @@ method：POST
 
 ```source-json
 {
-  "error":0,
-  "desc":"SUCCESS",
+  "code":0,
+  "msg":"SUCCESS",
   "result": "ID"
 }
 ```
 | Field Name | Type | Description |
 | :-- | :-- | :-- |
-| error | int | 错误码 |
-| desc | String | 成功为SUCCESS，失败为错误描述 |
+| code | int | 错误码 |
+| msg | String | 成功为SUCCESS，失败为错误描述 |
 | result | String | 成功返回数据ID，失败返回"" |
 
 
@@ -115,8 +115,8 @@ method：POST
 
 ```source-json
 {
-  "error": 0,
-  "desc": "SUCCESS",
+  "code": 0,
+  "msg": "SUCCESS",
   "result": {
     "currentPage": 0,
     "pageSize": 2,
@@ -141,8 +141,8 @@ method：POST
 
 | Field Name | Type | Description |
 | :-- | :-- | :-- |
-| error | int | 错误码 |
-| desc | String | 成功为SUCCESS，失败为错误描述 |
+| code | int | 错误码 |
+| msg | String | 成功为SUCCESS，失败为错误描述 |
 | result | Object | 返回分页数据 |
 | total | String |总页数|
 |records|Array|Array里面每个数据和插入的数据一个格式|
@@ -150,7 +150,7 @@ method：POST
 ###  3.3. <a name='ID'></a>根据ID返回数据
 
 ```
-url:/api/v1/dataset/id
+url:/api/v1/dataset/{id}
 method:Get
 ```
 
@@ -158,8 +158,8 @@ method:Get
 
 ```source-json
 {
-  "error": 0,
-  "desc": "SUCCESS",
+  "code": 0,
+  "msg": "SUCCESS",
   "result": {
     "tag0": "上海第九人民医院",
     "tag1": "青少年疾病",
@@ -174,8 +174,8 @@ method:Get
 
 | Field Name | Type | Description |
 | :-- | :-- | :-- |
-| error | int | 错误码 |
-| desc | String | 成功为SUCCESS，失败为错误描述 |
+| code | int | 错误码 |
+| msg | String | 成功为SUCCESS，失败为错误描述 |
 | result | Object | 返回数据 |
 
 ###  3.4. <a name='-1'></a>权限

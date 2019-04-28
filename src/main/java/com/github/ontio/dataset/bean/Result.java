@@ -4,16 +4,16 @@ import lombok.Data;
 
 @Data
 public class Result {
-    public int error;
-    public String desc;
+    public int code;
+    public String msg;
     public Object result;
 
     public Result() {
     }
 
-    public Result(int error, String desc, Object result) {
-        this.error = error;
-        this.desc = desc;
+    public Result(int code, String msg, Object result) {
+        this.code = code;
+        this.msg = msg;
         this.result = result;
     }
 
